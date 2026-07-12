@@ -1,16 +1,42 @@
-# React + Vite
+# Student Portfolio React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a Vite + React implementation of a student portfolio page for Practical 1. It uses reusable functional components such as Header, About, Skills, Footer, and NavBar, with props passed from App.jsx to render dynamic content.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Responsive single-page portfolio layout
+- Reusable components with independent structure
+- Props used to pass data into multiple components
+- Custom CSS styling for a modern student portfolio look
 
-## React Compiler
+## Run Locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Open the project folder
+2. Install dependencies:
 
-## Expanding the ESLint configuration
+   ```bash
+   npm install
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open the local URL shown by Vite in your browser
+
+## Build for Production
+
+```bash
+npm run build
+```
+
+## GitHub Upload
+
+After creating a repository on GitHub, run:
+
+```bash
+git remote add origin <your-github-repo-url>
+git push -u origin master
+```
