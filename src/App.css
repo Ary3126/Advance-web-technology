@@ -1,0 +1,122 @@
+.portfolio-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  padding: 1.5rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.hero-card,
+.section-card,
+.footer-card {
+  background: linear-gradient(135deg, #ffffff, #eef2ff);
+  color: #1f2937;
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+.hero-card {
+  border: 2px solid var(--accent-color, #6c63ff);
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-color, #6c63ff);
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  color: white;
+  background: var(--accent-color, #6c63ff);
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.info-grid div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.8rem;
+  background: #f8fafc;
+  border-radius: 16px;
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.skill-list li {
+  padding: 0.65rem 0.95rem;
+  border-radius: 999px;
+  background: #e0e7ff;
+  color: #4338ca;
+  font-weight: 700;
+}
+
+.footer-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: #4338ca;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 700px) {
+  .portfolio-shell {
+    padding: 1rem;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .info-grid,
+  .footer-card {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
