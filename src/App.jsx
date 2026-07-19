@@ -1,25 +1,42 @@
+import { useState, useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import About from './components/About'
-import Footer from './components/Footer'
-import Header from './components/Header'
 import NavBar from './components/NavBar'
-import Skills from './components/Skills'
+import Footer from './components/Footer'
+import Home from './pages/Home'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
+import NotFound from './pages/NotFound'
 
 function App() {
-  const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Vite']
+  // Theme state using useState (Supplementary requirement: Dark/Light Mode toggle)
+  const [theme, setTheme] = useState('dark')
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+  }
 
   return (
-    <div className="portfolio-shell">
-      <NavBar />
-      <Header name="Aarav Patel" themeColor="#6c63ff" />
-      <About
-        bio="I am a second-year student passionate about web technologies, user experience, and building practical projects with modern tools."
-        location="Mumbai, India"
-        study="Frontend Development"
-      />
-      <Skills skillList={skills} />
+    <div className="portfolio-shell" data-theme={theme}>
+      {/* Navigation Bar with Link / NavLink */}
+      <NavBar theme={theme} toggleTheme={toggleTheme} />
+
+      {/* React Router v6 Client-Side Routing */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        {/* Custom 404 Route */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      {/* Footer */}
       <Footer
-        email="aarav@example.com"
+        email="Ary@example.com"
         github="https://github.com/"
         copyright="© 2026 Student Portfolio"
       />
