@@ -1,0 +1,17 @@
+{
+  "name": "advanced-web-frameworks-practicals",
+  "version": "1.0.0",
+  "description": "ADVANCED WEB DEVELOPMENT FRAMEWORKS (ITUE301) - Practicals 1 to 6",
+  "scripts": {
+    "dev:pra1-3": "npm --prefix \"pra-1 to 3\" run dev",
+    "dev:pra4-5": "node \"pra-4 to 5/server.js\"",
+    "dev:pra6-backend": "node \"pra-6/backend/server.js\"",
+    "dev:pra6-frontend": "npm --prefix \"pra-6/frontend\" run dev",
+    "dev:pra6": "npm --prefix \"pra-6\" run dev",
+    "test:pra5": "node \"pra-4 to 5/test_api.js\"",
+    "test:pra6": "node \"pra-6/test_fullstack.js\""
+  },
+  "keywords": ["react", "express", "mongodb", "mongoose", "awt-practicals"],
+  "author": "Ary Patel",
+  "license": "ISC"
+}
