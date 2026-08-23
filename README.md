@@ -1,13 +1,13 @@
 # ADVANCED WEB DEVELOPMENT FRAMEWORKS (ITUE301)
-## Course Practical Repository
+## Course Practical & Assignment Repository
 
-This repository contains all laboratory practicals for **Advanced Web Development Frameworks (ITUE301)**, covering frontend React single-page architecture, backend Node.js & Express REST APIs, MongoDB database persistence with Mongoose, and complete Full-Stack integration.
+This repository contains all laboratory practicals and assignments for **Advanced Web Development Frameworks (ITUE301)**, covering frontend React single-page architecture, backend Node.js & Express REST APIs, MongoDB database persistence with Mongoose, and complete Full-Stack integration.
 
 ---
 
-## 📚 Practical Index & Overview
+## 📚 Practical & Assignment Index
 
-| Practical | Module & Title | Technology Stack | Location Directory |
+| Module / Practical | Title | Technology Stack | Location Directory |
 |---|---|---|---|
 | **Practical 1** | React Component Architecture & JSX | React 19, Vite, Vanilla CSS | [`pra-1 to 3/`](file:///c:/ary/AWT/pra-1%20to%203) |
 | **Practical 2** | React State & Interactive UI Handling | React Hooks (`useState`), Forms | [`pra-1 to 3/`](file:///c:/ary/AWT/pra-1%20to%203) |
@@ -15,37 +15,33 @@ This repository contains all laboratory practicals for **Advanced Web Developmen
 | **Practical 4** | Node.js & Express REST API Architecture | Express 5, Middleware, Error Handling | [`pra-4 to 5/`](file:///c:/ary/AWT/pra-4%20to%205) |
 | **Practical 5** | MongoDB Database Integration with Mongoose | MongoDB, Mongoose Schema, CRUD | [`pra-4 to 5/`](file:///c:/ary/AWT/pra-4%20to%205) |
 | **Practical 6** | **Full Stack Integration React + Node + MongoDB** | React, Express, MongoDB, CORS | [`pra-6/`](file:///c:/ary/AWT/pra-6) |
+| **Week 4 Assignment** | **Richardson Maturity Model Evaluation (Levels 0–3)** | Express, REST Verbs, HATEOAS | [`assignment-w4/`](file:///c:/ary/AWT/assignment-w4) |
 
 ---
 
-## ⚡ Practical 6: Full Stack Integration Highlights
+## ⚡ Highlights
+
+### Practical 6: Full Stack Integration
 - **Backend**: Express + Mongoose + CORS on `http://localhost:5000`
 - **Frontend**: React + Centralized API Client on `http://localhost:5173`
 - **Database**: MongoDB collection `tasks` on `mongodb://127.0.0.1:27017/taskManager`
-- **Full CRUD Support**: Create, View, Update, Delete with database persistence
-- **Supplementary Features**:
-  - **Optimistic UI Updates** with automated rollback on server errors
-  - **Confirmation Dialog Modal** before deleting tasks
-  - **Toast Notification System** for real-time feedback
-  - **Real-Time Backend Health Badge**
-  - **Category, Status, & Search Filtering**
+- **Features**: Optimistic UI, Delete Confirmation Modal, Toast alerts, Search & filters.
+
+### Week 4 Assignment: Richardson Maturity Model
+- **Evaluation Report**: [`assignment-w4/MATURITY.md`](file:///c:/ary/AWT/assignment-w4/MATURITY.md) assessing Levels 0 to 3.
+- **Demonstration Server**: [`assignment-w4/server.js`](file:///c:/ary/AWT/assignment-w4/server.js) with Level 2 compliance and Level 3 HATEOAS hypermedia links.
+- **Automated Test Suite**: [`assignment-w4/test_maturity.js`](file:///c:/ary/AWT/assignment-w4/test_maturity.js) passing **21/21** assertions.
 
 ---
 
-## 🚀 Running Practical 6 Locally
+## 🚀 Running Any Project Locally
 
-### Option A: Running Backend and Frontend in Separate Terminals
 ```bash
-# Terminal 1: Backend
-cd "pra-6/backend"
-npm start
+# Practical 6 Full Stack
+npm run dev:pra6-backend   # Express API (Port 5000)
+npm run dev:pra6-frontend  # React SPA (Port 5173)
 
-# Terminal 2: Frontend
-cd "pra-6/frontend"
-npm run dev
-```
-
-### Option B: Running Automated Full-Stack Test Suite
-```bash
-node pra-6/test_fullstack.js
+# Week 4 Assignment
+node assignment-w4/test_maturity.js
+npm run dev:assignment-w4  # Runs on Port 5001
 ```

@@ -1,0 +1,18 @@
+{
+  "name": "assignment-w4-richardson-maturity-model",
+  "version": "1.0.0",
+  "description": "Week 4 Assignment: Evaluating and Implementing REST API against Richardson Maturity Model (Levels 0-3 & HATEOAS)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test_maturity.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.0.0"
+  },
+  "keywords": ["rest", "richardson-maturity-model", "hateoas", "express", "http-verbs", "status-codes"],
+  "author": "Ary Patel",
+  "license": "ISC"
+}
