@@ -1,10 +1,10 @@
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom';
 
 function NavBar({ theme, toggleTheme }) {
   return (
     <header className="navbar-header">
       <Link to="/" className="brand-logo">
-        Portfolio.io
+        Portfolio &amp; TaskApp
       </Link>
       <nav className="nav-links">
         <NavLink
@@ -15,10 +15,16 @@ function NavBar({ theme, toggleTheme }) {
           Home
         </NavLink>
         <NavLink
+          to="/tasks"
+          className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
+        >
+          Tasks (Full Stack)
+        </NavLink>
+        <NavLink
           to="/projects"
           className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
         >
-          Projects
+          Projects (API)
         </NavLink>
         <NavLink
           to="/contact"
@@ -36,7 +42,7 @@ function NavBar({ theme, toggleTheme }) {
         </button>
       </nav>
     </header>
-  )
+  );
 }
 
-export default NavBar
+export default NavBar;

@@ -1,0 +1,18 @@
+{
+  "name": "practical-6-fullstack-integration",
+  "version": "1.0.0",
+  "description": "Practical 6: Full Stack Integration React (5173) + Node/Express (5000) + MongoDB",
+  "scripts": {
+    "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"blue,green\" \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "npm --prefix backend start",
+    "dev:frontend": "npm --prefix frontend dev",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "test": "node test_fullstack.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": ["react", "express", "mongodb", "mongoose", "cors", "fullstack", "crud"],
+  "author": "Ary Patel",
+  "license": "ISC"
+}
