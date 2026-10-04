@@ -1,0 +1,20 @@
+{
+  "name": "practical-10-event-driven-tasks",
+  "version": "1.0.0",
+  "description": "JWT-authenticated task API with asynchronous EventEmitter notifications",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test cache.test.js events.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.3.0",
+    "node-cache": "^5.1.2"
+  }
+}
