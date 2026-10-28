@@ -8,6 +8,7 @@
  *     expect(res.statusCode).toBe(200); // Restores passing green status
  */
 
+process.env.DOTENV_CONFIG_QUIET = 'true';
 const request = require('supertest');
 const app = require('../server');
 
