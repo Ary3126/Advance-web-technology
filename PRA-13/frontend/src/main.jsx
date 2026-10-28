@@ -60,8 +60,19 @@ function App() {
     request('/api/tasks', { headers: { Authorization: `Bearer ${token}` } })
       .then((items) => setTasks(Array.isArray(items) ? items : []))
       .catch((error) => {
-        setMessage(error.message);
-        setMessageType('warning');
+        // Auto-recover if expired token from a previous practical session is in localStorage
+        if (error.status === 401 || (error.message && error.message.toLowerCase().includes('token'))) {
+          localStorage.removeItem('taskToken');
+          setToken(null);
+          request('/tasks')
+            .then((res) => setTasks(res.tasks || []))
+            .catch(() => {});
+          setMessage('Previous login session expired. Auto-switched to clean demo mode.');
+          setMessageType('info');
+        } else {
+          setMessage(error.message);
+          setMessageType('warning');
+        }
       });
   }, [token]);
 
@@ -146,12 +157,29 @@ function App() {
     event.preventDefault();
     try {
       if (token) {
-        const created = await request('/api/tasks', {
-          method: 'POST',
-          headers: { Authorization: `Bearer ${token}` },
-          body: JSON.stringify(task)
-        });
-        setTasks((current) => [created, ...current]);
+        try {
+          const created = await request('/api/tasks', {
+            method: 'POST',
+            headers: { Authorization: `Bearer ${token}` },
+            body: JSON.stringify(task)
+          });
+          setTasks((current) => [created, ...current]);
+        } catch (apiError) {
+          if (apiError.status === 401 || (apiError.message && apiError.message.toLowerCase().includes('token'))) {
+            localStorage.removeItem('taskToken');
+            setToken(null);
+            const localTask = {
+              _id: Date.now().toString(),
+              title: task.title,
+              description: task.description,
+              priority: task.priority,
+              completed: false
+            };
+            setTasks((current) => [localTask, ...current]);
+          } else {
+            throw apiError;
+          }
+        }
       } else {
         // Local demo mode
         const localTask = {
