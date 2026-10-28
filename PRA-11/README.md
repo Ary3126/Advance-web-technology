@@ -47,5 +47,5 @@ docker compose logs backend
 ```
 
 `EXPOSE` documents the port inside an image; the `ports` entries in
-`docker-compose.yml` publish those container ports to the host.
+`docker-compose.yml` publish those container ports to the host.`
 `node_modules` and `.env` files are excluded from every build context.

@@ -49,3 +49,4 @@ jobs:
 
       - name: Run automated tests (npm test)
         run: npm test
+
