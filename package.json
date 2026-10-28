@@ -1,7 +1,7 @@
 {
   "name": "advanced-web-frameworks-practicals",
   "version": "1.0.0",
-  "description": "ADVANCED WEB DEVELOPMENT FRAMEWORKS (ITUE301) - Practicals 1 to 6 and Assignments",
+  "description": "ADVANCED WEB DEVELOPMENT FRAMEWORKS (ITUE301) - Practicals 1 to 12 and Assignments",
   "scripts": {
     "dev:pra1-3": "npm --prefix \"pra-1 to 3\" run dev",
     "dev:pra4-5": "node \"pra-4 to 5/server.js\"",
@@ -9,11 +9,40 @@
     "dev:pra6-frontend": "npm --prefix \"pra-6/frontend\" run dev",
     "dev:pra6": "npm --prefix \"pra-6\" run dev",
     "dev:assignment-w4": "node \"assignment-w4/server.js\"",
+    "dev:pra12": "node \"PRA-12/server.js\"",
+    "test": "jest PRA-12/tests/tasks.test.js --runInBand",
+    "test:pra12": "jest PRA-12/tests/tasks.test.js --runInBand",
+    "test:broken": "jest --testMatch=\"**/broken.test.sample.js\" --runInBand",
+    "lint": "eslint PRA-12/",
     "test:pra5": "node \"pra-4 to 5/test_api.js\"",
     "test:pra6": "node \"pra-6/test_fullstack.js\"",
     "test:assignment-w4": "node \"assignment-w4/test_maturity.js\""
   },
-  "keywords": ["react", "express", "mongodb", "mongoose", "awt-practicals", "richardson-maturity-model"],
+  "keywords": [
+    "react",
+    "express",
+    "mongodb",
+    "mongoose",
+    "awt-practicals",
+    "github-actions",
+    "ci-cd",
+    "jest",
+    "supertest"
+  ],
   "author": "Ary Patel",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "jest": "^29.7.0",
+    "supertest": "^7.3.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.11.4",
+    "node-cache": "^5.1.2"
+  }
 }

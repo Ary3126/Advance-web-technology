@@ -1,0 +1,51 @@
+name: CI Pipeline
+
+# Trigger workflow on pushes and pull requests to main
+# Supplementary Problem 2 Note:
+# To configure the workflow to run ONLY on pull requests targeting main (and not on direct push),
+# simply comment out the 'push:' trigger block and keep only 'pull_request: branches: [main]'.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Supplementary Problem 1: Second job running linter (ESLint) before the test job
+  lint:
+    name: Lint Code (ESLint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run ESLint
+        run: npm run lint
+
+  # Primary Job: Build and Automated Testing
+  build-and-test:
+    name: Build & Automated Tests
+    runs-on: ubuntu-latest
+    needs: [lint] # Ensures lint job completes before running test job
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies (npm install)
+        run: npm install
+
+      - name: Run automated tests (npm test)
+        run: npm test
