@@ -3,7 +3,7 @@
 
 [![CI Pipeline](https://github.com/Ary3126/Advance-web-technology/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Ary3126/Advance-web-technology/actions/workflows/ci.yml)
 
-This repository contains all laboratory practicals and assignments for **Advanced Web Development Frameworks (ITUE301)**, covering frontend React single-page architecture, backend Node.js & Express REST APIs, MongoDB database persistence with Mongoose, caching, event-driven architectures, containerization, and automated CI/CD pipelines with GitHub Actions.
+This repository contains all laboratory practicals and assignments for **Advanced Web Development Frameworks (ITUE301)**, covering frontend React single-page architecture, backend Node.js & Express REST APIs, MongoDB database persistence with Mongoose, caching, event-driven architectures, containerization, automated CI/CD pipelines with GitHub Actions, and secure AI API integration.
 
 ---
 
@@ -24,19 +24,22 @@ This repository contains all laboratory practicals and assignments for **Advance
 | **Practical 10** | Event-Driven Architecture with EventEmitter | Node.js EventEmitter, Async Tasks | [`PRA-10/`](PRA-10) |
 | **Practical 11** | Containerization with Docker Compose | Docker, Compose, Multi-container Stack | [`PRA-11/`](PRA-11) |
 | **Practical 12** | **CI/CD Pipeline with GitHub Actions** | GitHub Actions, Jest, Supertest, ESLint | [`PRA-12/`](PRA-12) |
+| **Practical 13** | **AI API Integration into a Web Application** | OpenAI GPT-4o-mini, Gemini, Express, React, Responsible AI | [`PRA-13/`](PRA-13) |
 
 ---
 
 ## ⚡ Highlights
 
+### Practical 13: AI API Integration into a Web Application
+- **Server-Side AI Proxy**: Secure backend integration calling OpenAI GPT-4o-mini / Gemini (`.env` server-side only; keys never exposed to frontend).
+- **Graceful Degradation**: Outages, invalid keys, or timeouts automatically trigger intelligent local heuristic fallbacks (`fallback: true`), ensuring the core app never crashes.
+- **Human-in-the-Loop**: Generates editable description suggestions in a `<textarea>` with priority auto-selection.
+- **Responsible AI**: Clear UI disclaimer, loading states, and rate limiting (max 5 requests/minute).
+
 ### Practical 12: CI/CD Pipeline with GitHub Actions
 - **Continuous Integration**: Automated workflow `.github/workflows/ci.yml` running on every `push` and `pull_request` targeting `main`.
-- **Quality Gates**:
-  - **Job 1 (Lint)**: ESLint code style and syntax verification.
-  - **Job 2 (Build & Test)**: Node.js 18 environment running automated tests via **Jest** and **Supertest**.
-- **Automated Tests**: Validating `GET /tasks` (status 200), `GET /api/health` (status 200), `GET /`, and 404 handlers.
+- **Quality Gates**: Sequential `lint` (ESLint) and `build-and-test` (Jest + Supertest) jobs.
 - **Status Badge**: Real-time pipeline status badge reflected in README.
-- **Demonstration**: Documented proof of both deliberately broken pipeline (Red X) and corrected pipeline (Green checkmark).
 
 ### Practical 11: Containerization with Docker Compose
 - Multi-container architecture with separate `frontend`, `backend`, and `mongodb` services networked via `app-network`.
@@ -45,29 +48,27 @@ This repository contains all laboratory practicals and assignments for **Advance
 - **Backend**: Express + Mongoose + CORS on `http://localhost:5000`
 - **Frontend**: React + Centralized API Client on `http://localhost:5173`
 - **Database**: MongoDB collection `tasks` on `mongodb://127.0.0.1:27017/taskManager`
-- **Features**: Optimistic UI, Delete Confirmation Modal, Toast alerts, Search & filters.
-
-### Week 4 Assignment: Richardson Maturity Model
-- **Evaluation Report**: [`assignment-w4/MATURITY.md`](assignment-w4/MATURITY.md) assessing Levels 0 to 3.
-- **Demonstration Server**: [`assignment-w4/server.js`](assignment-w4/server.js) with Level 2 compliance and Level 3 HATEOAS hypermedia links.
-- **Automated Test Suite**: [`assignment-w4/test_maturity.js`](assignment-w4/test_maturity.js) passing **21/21** assertions.
 
 ---
 
 ## 🚀 Running Any Project Locally
 
 ```bash
+# Practical 13 (AI API Integration)
+npm run dev:pra13-backend   # Express API with AI proxy (Port 5000)
+npm run dev:pra13-frontend  # React SPA with AI Assistant (Port 5174)
+npm run test:pra13          # Automated AI suite (5 tests passing)
+
 # Practical 12 (CI/CD Automated Tests & Linter)
-npm test                # Run Jest automated test suite
-npm run lint            # Run ESLint quality check
-npm run test:broken     # Run deliberate failure test demonstration
-npm run dev:pra12       # Run Practical 12 API server
+npm test                    # Run Jest automated test suite
+npm run lint                # Run ESLint quality check
+npm run dev:pra12           # Run Practical 12 API server
 
 # Practical 6 Full Stack
-npm run dev:pra6-backend   # Express API (Port 5000)
-npm run dev:pra6-frontend  # React SPA (Port 5173)
+npm run dev:pra6-backend    # Express API (Port 5000)
+npm run dev:pra6-frontend   # React SPA (Port 5173)
 
 # Week 4 Assignment
 node assignment-w4/test_maturity.js
-npm run dev:assignment-w4  # Runs on Port 5001
+npm run dev:assignment-w4   # Runs on Port 5001
 ```

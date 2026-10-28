@@ -1,7 +1,7 @@
 {
   "name": "advanced-web-frameworks-practicals",
   "version": "1.0.0",
-  "description": "ADVANCED WEB DEVELOPMENT FRAMEWORKS (ITUE301) - Practicals 1 to 12 and Assignments",
+  "description": "ADVANCED WEB DEVELOPMENT FRAMEWORKS (ITUE301) - Practicals 1 to 13 and Assignments",
   "scripts": {
     "dev:pra1-3": "npm --prefix \"pra-1 to 3\" run dev",
     "dev:pra4-5": "node \"pra-4 to 5/server.js\"",
@@ -10,10 +10,13 @@
     "dev:pra6": "npm --prefix \"pra-6\" run dev",
     "dev:assignment-w4": "node \"assignment-w4/server.js\"",
     "dev:pra12": "node \"PRA-12/server.js\"",
+    "dev:pra13-backend": "node \"PRA-13/backend/server.js\"",
+    "dev:pra13-frontend": "npm --prefix \"PRA-13/frontend\" run dev",
     "test": "jest PRA-12/tests/tasks.test.js --runInBand",
     "test:pra12": "jest PRA-12/tests/tasks.test.js --runInBand",
+    "test:pra13": "jest PRA-13/backend/tests/ai.test.js --runInBand",
     "test:broken": "jest --testMatch=\"**/broken.test.sample.js\" --runInBand",
-    "lint": "eslint PRA-12/",
+    "lint": "eslint PRA-12/ PRA-13/backend/",
     "test:pra5": "node \"pra-4 to 5/test_api.js\"",
     "test:pra6": "node \"pra-6/test_fullstack.js\"",
     "test:assignment-w4": "node \"assignment-w4/test_maturity.js\""
@@ -27,7 +30,11 @@
     "github-actions",
     "ci-cd",
     "jest",
-    "supertest"
+    "supertest",
+    "ai",
+    "openai",
+    "gemini",
+    "responsible-ai"
   ],
   "author": "Ary Patel",
   "license": "ISC",
@@ -43,6 +50,7 @@
     "express": "^5.3.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.11.4",
-    "node-cache": "^5.1.2"
+    "node-cache": "^5.1.2",
+    "openai": "^7.45.1"
   }
 }

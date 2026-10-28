@@ -1,0 +1,101 @@
+{
+  "info": {
+    "name": "Practical 13 - AI API Integration & Responsible AI",
+    "_postman_id": "practical-13-ai-integration",
+    "description": "Postman Collection for Practical 13: Secure Server-Side AI API Integration, Graceful Degradation, and Task Management Endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. POST /api/ai/generate-description (Success Path)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Implement JWT Authentication Middleware\"\n}"
+        },
+        "url": "{{baseUrl}}/api/ai/generate-description",
+        "description": "Calls backend AI proxy to draft task description and suggest priority level"
+      }
+    },
+    {
+      "name": "2. POST /api/ai/generate-description (Simulated Failure / Graceful Degradation)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Simulate-AI-Failure",
+            "value": "true"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Fix memory leak in background worker service\"\n}"
+        },
+        "url": "{{baseUrl}}/api/ai/generate-description",
+        "description": "Simulates third-party AI provider outage to demonstrate graceful degradation without application crash"
+      }
+    },
+    {
+      "name": "3. POST /api/ai/generate-description (Missing Title Validation - 400 Bad Request)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"\"\n}"
+        },
+        "url": "{{baseUrl}}/api/ai/generate-description",
+        "description": "Verifies input validation when title is omitted or empty"
+      }
+    },
+    {
+      "name": "4. GET /api/health (System Health & AI Service Status)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/api/health",
+        "description": "Returns backend health and AI provider configuration flags"
+      }
+    },
+    {
+      "name": "5. GET / (API Status & Documentation)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/",
+        "description": "Root endpoint listing active AI provider and endpoints"
+      }
+    },
+    {
+      "name": "6. GET /tasks (Task List)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{baseUrl}}/tasks",
+        "description": "Retrieves task items"
+      }
+    }
+  ]
+}

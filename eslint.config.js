@@ -21,7 +21,8 @@ module.exports = [
         afterEach: 'readonly',
         beforeAll: 'readonly',
         afterAll: 'readonly',
-        setTimeout: 'readonly'
+        setTimeout: 'readonly',
+        fetch: 'readonly'
       }
     },
     rules: {
