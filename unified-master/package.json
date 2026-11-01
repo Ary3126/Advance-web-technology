@@ -1,0 +1,30 @@
+{
+  "name": "unified-awt-master-platform",
+  "version": "2.0.0",
+  "description": "Unified Master Platform integrating all course practicals (1–11) and Week 4 Richardson Maturity Model Assignment",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run start",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:frontend": "npm --prefix frontend run build",
+    "build": "npm run build:frontend",
+    "test": "npm --prefix backend test",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down",
+    "docker:down-v": "docker compose down -v"
+  },
+  "keywords": [
+    "react-19",
+    "express-5",
+    "mongodb",
+    "mongoose",
+    "docker-compose",
+    "hateoas",
+    "richardson-maturity-model",
+    "node-cache",
+    "event-emitter",
+    "jwt-auth"
+  ],
+  "author": "Ary Patel",
+  "license": "ISC"
+}
+

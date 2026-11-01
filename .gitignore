@@ -2,16 +2,22 @@
 node_modules/
 */node_modules/
 */*/node_modules/
+**/node_modules/
 
 # Environment Variables
 .env
 */.env
+*/*/.env
+**/.env
 *.env.local
 
 # Build outputs & cache
 dist/
 build/
+**/dist/
+**/build/
 .vite/
+**/.vite/
 .eslintcache
 
 # Logs

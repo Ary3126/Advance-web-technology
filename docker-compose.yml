@@ -1,0 +1,75 @@
+# ==============================================================================
+# ROOT DOCKER COMPOSE: UNIFIED AWT MASTER PLATFORM (Practicals 1 to 11 All-in-One)
+# ==============================================================================
+# Quick Start:
+#   docker compose up --build
+#
+# Access:
+#   - Frontend UI: http://localhost:5173 or http://localhost:8080
+#   - Backend API: http://localhost:5000
+#   - Health Probe: http://localhost:5000/api/health
+#   - HATEOAS REST: http://localhost:5000/api/v3/tasks
+# ==============================================================================
+
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: awt-root-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - awt-root-mongo-data:/data/db
+    networks:
+      - awt-network
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  backend:
+    build:
+      context: ./unified-master/backend
+      dockerfile: Dockerfile
+    container_name: awt-root-backend
+    restart: unless-stopped
+    environment:
+      PORT: 5000
+      MONGO_URI: mongodb://mongodb:27017/unifiedAwtHub
+      JWT_SECRET: production-secret-awt-root-2026
+      CACHE_TTL_SECONDS: 60
+      NODE_ENV: production
+    ports:
+      - "5000:5000"
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - awt-network
+
+  frontend:
+    build:
+      context: ./unified-master/frontend
+      dockerfile: Dockerfile
+    container_name: awt-root-frontend
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - awt-network
+
+networks:
+  awt-network:
+    driver: bridge
+
+volumes:
+  awt-root-mongo-data:
+    driver: local
+
